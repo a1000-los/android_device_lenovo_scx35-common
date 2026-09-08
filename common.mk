@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/samsung/scx35-common
+LOCAL_PATH := device/lenovo/scx35-common
 
 # Inherit from AOSP product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from sprd-common device configuration
-$(call inherit-product, device/samsung/sprd-common/common.mk)
+$(call inherit-product, device/lenovo/sprd-common/common.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 

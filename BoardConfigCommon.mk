@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Inherit from SPRD common configs
--include device/samsung/sprd-common/BoardConfigCommon.mk
+-include device/lenovo/sprd-common/BoardConfigCommon.mk
 
 # Platform
 TARGET_ARCH := arm
@@ -23,12 +23,12 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a7
 TARGET_NO_BOOTLOADER := true
-BOARD_VENDOR := samsung
+BOARD_VENDOR := lenovo
 
 # Bluetooth
 USE_BLUETOOTH_BCM4343 := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/scx35-common/bluetooth
-BOARD_CUSTOM_BT_CONFIG := device/samsung/scx35-common/bluetooth/libbt_vndcfg.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/scx35-common/bluetooth
+BOARD_CUSTOM_BT_CONFIG := device/lenovo/scx35-common/bluetooth/libbt_vndcfg.txt
 
 # RIL
 BOARD_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
@@ -43,7 +43,7 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 BOARD_CANT_REALLOCATE_OMX_BUFFERS := true
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/scx35-common/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/lenovo/scx35-common/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_TAGS_OFFSET := 0x01d88000
 BOARD_RAMDISK_OFFSET := 0x01000000
@@ -51,7 +51,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin
+KERNEL_TOOLCHAIN := /opt/toolchains/arm-eabi-4.8/bin
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -68,15 +68,8 @@ WITHOUT_CHECK_API := true
 # Lights
 TARGET_HAS_BACKLIT_KEYS := false
 
-# Init
-TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_sec
-
-# Board specific features
-#TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-
 # GPS
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/scx35-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/lenovo/scx35-common/include
 
 # healthd
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.sc8830
@@ -89,4 +82,4 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 BACKLIGHT_PATH := /sys/class/backlight/panel/brightness
 
 # SELinux policy
-BOARD_SEPOLICY_DIRS += device/samsung/scx35-common/sepolicy
+BOARD_SEPOLICY_DIRS += device/lenovo/scx35-common/sepolicy
